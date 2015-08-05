@@ -13,7 +13,7 @@ var v,
 // Plain arrays...
 v = new Array( 10 );
 for ( i = 0; i < v.length; i++ ) {
-	v[ i ] = i;
+	v[ i ] = i + 1;
 }
 out = median( v );
 console.log( 'Arrays: %s\n', out );
@@ -55,7 +55,7 @@ console.log( '\n' );
 // Typed arrays...
 v = new Float64Array( 10 );
 for ( i = 0; i < v.length; i++ ) {
-	v[ i ] = i;
+	v[ i ] = i + 1;
 }
 tmp = median( v );
 out = '';

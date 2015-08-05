@@ -2,12 +2,12 @@ Median
 ===
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][codecov-image]][codecov-url] [![Dependencies][dependencies-image]][dependencies-url]
 
-> [Student t](https://en.wikipedia.org/wiki/Student t_distribution) distribution [median](https://en.wikipedia.org/wiki/median).
+> [Student t](https://en.wikipedia.org/wiki/Student_t_distribution) distribution [median](https://en.wikipedia.org/wiki/median).
 
-The [median](https://en.wikipedia.org/wiki/median) for a [Student t](https://en.wikipedia.org/wiki/Student t_distribution) random variable is
+The [median](https://en.wikipedia.org/wiki/median) for a [Student t](https://en.wikipedia.org/wiki/Student_t_distribution) random variable is
 
-<div class="equation" align="center" data-raw-text="\operatorname{}\left[ X \right] = " data-equation="eq:median">
-	<img src="" alt="median for a Student t distribution.">
+<div class="equation" align="center" data-raw-text="\operatorname{median}\left( X \right) = 0" data-equation="eq:median">
+	<img src="https://cdn.rawgit.com/distributions-io/t-median/abaeadaf62e9cb782352fb1804b5622eaf9506e9/docs/img/eqn.svg" alt="Median for a Student t distribution.">
 	<br>
 </div>
 
@@ -41,16 +41,16 @@ var matrix = require( 'dstructs-matrix' ),
 	i;
 
 out = median( 2 );
-// returns ~0.000
+// returns 0
 
 v = [ 2, 4, 8, 16 ];
 out = median( v );
 
-// returns [ ~0.000, ~0.000, ~0.000, ~0.000 ]
+// returns [ 0, 0, 0, 0 ]
 
 v = new Float32Array( v );
 out = median( v );
-// returns Float64Array( [~0.000,~0.000,~0.000,~0.000] )
+// returns Float64Array( [0,0,0,0] )
 
 v =  matrix( [ 2, 4, 8, 16 ], [2,2] );
 /*
@@ -60,8 +60,8 @@ v =  matrix( [ 2, 4, 8, 16 ], [2,2] );
 
 out = median( v );
 /*
-	[ ~0.000 ~0.000,
-	  ~0.000 ~0.000 ]
+	[ 0 0,
+	  0 0 ]
 */
 ```
 
@@ -90,7 +90,7 @@ function getValue( d, i ) {
 var out = median( v, {
 	'accessor': getValue
 });
-// returns [ ~0.000, ~0.000, ~0.000, ~0.000 ]
+// returns [ 0, 0, 0, 0 ]
 ```
 
 To [deepset](https://github.com/kgryte/utils-deep-set) an object `array`, provide a key path and, optionally, a key path separator.
@@ -106,10 +106,10 @@ var v = [
 var out = median( v, 'x|1', '|' );
 /*
 	[
-		{'x':[9,~0.000]},
-		{'x':[9,~0.000]},
-		{'x':[9,~0.000]},
-		{'x':[9,~0.000]},
+		{'x':[9,0]},
+		{'x':[9,0]},
+		{'x':[9,0]},
+		{'x':[9,0]},
 	]
 */
 
@@ -150,7 +150,7 @@ v = [ 2, 4, 8, 16 ];
 out = median( v, {
 	'copy': false
 });
-// returns [ ~0.000, ~0.000, ~0.000, ~0.000 ]
+// returns [ 0, 0, 0, 0 ]
 
 bool = ( data === out );
 // returns true
@@ -165,8 +165,8 @@ out = median( mat, {
 	'copy': false
 });
 /*
-	[ ~0.000 ~0.000,
-	  ~0.000 ~0.000 ]
+	[ 0 0,
+	  0 0 ]
 */
 
 bool = ( mat === out );
@@ -252,7 +252,7 @@ var v,
 // Plain arrays...
 v = new Array( 10 );
 for ( i = 0; i < v.length; i++ ) {
-	v[ i ] = i;
+	v[ i ] = i + 1;
 }
 out = median( v );
 
@@ -283,7 +283,7 @@ out = median( v, {
 // Typed arrays...
 v = new Float64Array( 10 );
 for ( i = 0; i < v.length; i++ ) {
-	v[ i ] = i;
+	v[ i ] = i + 1;
 }
 out = median( v );
 
